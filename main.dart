@@ -1,30 +1,8 @@
+import 'arrangeNames.dart';
+import 'findMax.dart';
+import 'sumNumbers.dart';
+import 'sumEvenNumbers.dart';
 import 'dart:io';
-
-//Create a function that arranges names as intended.
-void arrangeNames(List<String> names) {
-  if (names.isEmpty) {
-    print("The list is empty.");
-    return;
-  }
-
-  for (int i = 0; i < names.length; i++) {
-    print('${i + 1}: ${names[i]}');
-  }
-}
-
-//Create a function (findMax) that prints the highest number between two arguments.
-void findMax(List<int> nums) {
-  if (nums.length != 2) {
-    print("Please input Two Numbers");
-    return;
-  }
-
-  if (nums[0] > nums[1]) {
-    print("The larger Number is:$nums[0]");
-  } else {
-    print("The larger Number is:$nums[1]");
-  }
-}
 
 void main() {
   List<String> names = [
@@ -44,19 +22,51 @@ void main() {
   print("_____________________________________________");
   print(" ");
 
-  print("Please Write two numbers seperated by a comma");
+  print("Find the Larger Number: Write two numbers seperated by a comma:");
 
-  String? userInput = stdin.readLineSync();
+  String? userFindMaxInput = stdin.readLineSync();
 
-  if (userInput == null || userInput.isEmpty) {
+  if (userFindMaxInput == null || userFindMaxInput.isEmpty) {
     print("Input cannot be empty.");
     return;
   }
 
-  List<String> userInputList = userInput.split(",");
+  List<String> userFindMaxList = userFindMaxInput.split(",");
 
   //Change List from type (String) to type (int).
-  List<int> numList = userInputList.map(int.parse).toList();
+  List<int> numList = userFindMaxList.map(int.parse).toList();
 
   findMax(numList);
+
+  print("_____________________________________________");
+  print(" ");
+
+  print(
+      "Sum Numbers and what's between then: Write two numbers seperated by a comma:");
+
+  String? userSumNumbersInput = stdin.readLineSync();
+  if (userSumNumbersInput == null || userSumNumbersInput.isEmpty) {
+    print("Input cannot be empty.");
+    return;
+  }
+
+  List<String> userSumNumbersList = userSumNumbersInput.split(",");
+  List<int> sumNumbersList = userSumNumbersList.map(int.parse).toList();
+  sumNumbers(sumNumbersList);
+
+  print("_____________________________________________");
+  print(" ");
+
+  print(
+      "Sum EvenNumbers and what's between then: Write two numbers seperated by a comma:");
+
+  String? userSumEvenNumbersInput = stdin.readLineSync();
+  if (userSumEvenNumbersInput == null || userSumEvenNumbersInput.isEmpty) {
+    print("Input cannot be empty.");
+    return;
+  }
+
+  List<String> userSumEvenNumbersList = userSumEvenNumbersInput.split(",");
+  List<int> sumEvenNumbersList = userSumEvenNumbersList.map(int.parse).toList();
+  sumEvenNumbers(sumEvenNumbersList);
 }
