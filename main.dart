@@ -27,6 +27,7 @@ void main() {
 
   String? userFindMaxInput = stdin.readLineSync();
   if (userFindMaxInput == null || userFindMaxInput.isEmpty) {
+    print('Input cannot be empty');
     return;
   }
   List<int> findMaxInput = getUserInput(userFindMaxInput);
@@ -41,6 +42,7 @@ void main() {
 
   String? userSumNumbersInput = stdin.readLineSync();
   if (userSumNumbersInput == null || userSumNumbersInput.isEmpty) {
+    print('Input cannot be empty');
     return;
   }
 
@@ -55,6 +57,7 @@ void main() {
 
   String? userSumEvenNumbersInput = stdin.readLineSync();
   if (userSumEvenNumbersInput == null || userSumEvenNumbersInput.isEmpty) {
+    print('Input cannot be empty');
     return;
   }
   List<int> sumEvenNumbersInput = getUserInput(userSumEvenNumbersInput);
