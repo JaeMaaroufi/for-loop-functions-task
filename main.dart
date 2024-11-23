@@ -1,3 +1,4 @@
+import 'getUserInput.dart';
 import 'arrangeNames.dart';
 import 'findMax.dart';
 import 'sumNumbers.dart';
@@ -25,18 +26,12 @@ void main() {
   print("Find the Larger Number: Write two numbers seperated by a comma:");
 
   String? userFindMaxInput = stdin.readLineSync();
-
   if (userFindMaxInput == null || userFindMaxInput.isEmpty) {
-    print("Input cannot be empty.");
     return;
   }
+  List<int> findMaxInput = getUserInput(userFindMaxInput);
 
-  List<String> userFindMaxList = userFindMaxInput.split(",");
-
-  //Change List from type (String) to type (int).
-  List<int> numList = userFindMaxList.map(int.parse).toList();
-
-  findMax(numList);
+  findMax(findMaxInput);
 
   print("_____________________________________________");
   print(" ");
@@ -46,13 +41,11 @@ void main() {
 
   String? userSumNumbersInput = stdin.readLineSync();
   if (userSumNumbersInput == null || userSumNumbersInput.isEmpty) {
-    print("Input cannot be empty.");
     return;
   }
 
-  List<String> userSumNumbersList = userSumNumbersInput.split(",");
-  List<int> sumNumbersList = userSumNumbersList.map(int.parse).toList();
-  sumNumbers(sumNumbersList);
+  List<int> sumNumbersInput = getUserInput(userSumNumbersInput);
+  sumNumbers(sumNumbersInput);
 
   print("_____________________________________________");
   print(" ");
@@ -62,11 +55,8 @@ void main() {
 
   String? userSumEvenNumbersInput = stdin.readLineSync();
   if (userSumEvenNumbersInput == null || userSumEvenNumbersInput.isEmpty) {
-    print("Input cannot be empty.");
     return;
   }
-
-  List<String> userSumEvenNumbersList = userSumEvenNumbersInput.split(",");
-  List<int> sumEvenNumbersList = userSumEvenNumbersList.map(int.parse).toList();
-  sumEvenNumbers(sumEvenNumbersList);
+  List<int> sumEvenNumbersInput = getUserInput(userSumEvenNumbersInput);
+  sumEvenNumbers(sumEvenNumbersInput);
 }
